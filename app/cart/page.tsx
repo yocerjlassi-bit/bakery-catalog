@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCartStore } from "@/store/cartStore";
-
+import { generateWhatsAppOrderUrl } from "@/lib/whatsapp";
 export default function CartPage() {
   const {
     items,
@@ -100,9 +100,14 @@ export default function CartPage() {
               Clear Cart
             </button>
 
-            <button className="rounded-full bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700">
-              Continue to WhatsApp Order
-            </button>
+            <a
+  href={generateWhatsAppOrderUrl(items)}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="rounded-full bg-green-600 px-6 py-3 text-center font-semibold text-white hover:bg-green-700"
+>
+  Continue to WhatsApp Order
+</a>
           </div>
         </div>
       </section>
