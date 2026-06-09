@@ -1,7 +1,6 @@
 import { CartItem } from "@/store/cartStore";
 import { CheckoutFormData } from "@/types/checkout";
-
-const BUSINESS_WHATSAPP_NUMBER = "21658701415";
+import { businessSettings } from "@/data/settings";
 
 export function generateWhatsAppOrderUrl(
   items: CartItem[],
@@ -48,7 +47,7 @@ ${checkoutData.notes || "No notes"}
 
 Please confirm availability and details.`;
 
-  return `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${encodeURIComponent(
+return `https://wa.me/${businessSettings.whatsappNumber}?text=${encodeURIComponent(
     message
   )}`;
 }
