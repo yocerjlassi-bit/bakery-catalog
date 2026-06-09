@@ -1,8 +1,12 @@
 import { CartItem } from "@/store/cartStore";
+import { CheckoutFormData } from "@/types/checkout";
 
-const BUSINESS_WHATSAPP_NUMBER = "58701415";
+const BUSINESS_WHATSAPP_NUMBER = "21658701415";
 
-export function generateWhatsAppOrderUrl(items: CartItem[]) {
+export function generateWhatsAppOrderUrl(
+  items: CartItem[],
+  checkoutData: CheckoutFormData
+) {
   const total = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -11,17 +15,36 @@ export function generateWhatsAppOrderUrl(items: CartItem[]) {
   const orderLines = items
     .map(
       (item) =>
-        `- ${item.quantity}x ${item.name} (${(
+        `• ${item.quantity}x ${item.name} - ${(
           item.price * item.quantity
-        ).toFixed(3)} TND)`
+        ).toFixed(3)} TND`
     )
     .join("\n");
 
-  const message = `Hello, I would like to place an order:
+  const message = `🍰 New Bakery Order
 
+Customer:
+Name: ${checkoutData.customerName}
+Phone: ${checkoutData.phoneNumber}
+Email: ${checkoutData.email || "Not provided"}
+
+Order Type: ${checkoutData.orderType}
+${
+  checkoutData.orderType === "delivery"
+    ? `Delivery Address: ${checkoutData.deliveryAddress}`
+    : ""
+}
+
+Requested Date: ${checkoutData.requestedDate}
+Time Slot: ${checkoutData.timeSlot}
+
+Order:
 ${orderLines}
 
 Total: ${total.toFixed(3)} TND
+
+Notes:
+${checkoutData.notes || "No notes"}
 
 Please confirm availability and details.`;
 

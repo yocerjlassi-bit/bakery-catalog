@@ -100,14 +100,12 @@ export default function CartPage() {
               Clear Cart
             </button>
 
-            <a
-  href={generateWhatsAppOrderUrl(items)}
-  target="_blank"
-  rel="noopener noreferrer"
+            <Link
+  href="/checkout"
   className="rounded-full bg-green-600 px-6 py-3 text-center font-semibold text-white hover:bg-green-700"
 >
-  Continue to WhatsApp Order
-</a>
+  Continue to Checkout
+</Link>
           </div>
         </div>
       </section>
