@@ -1,7 +1,7 @@
 import { BusinessSettings } from "@/types/settings";
 
 export const businessSettings: BusinessSettings = {
-  businessName: "Sweet Bakery",
+  businessName: "LES delices de sihem",
   whatsappNumber: "21658701415",
   instagramUrl: "https://instagram.com/sweetbakery",
   address: "Tunisia",
