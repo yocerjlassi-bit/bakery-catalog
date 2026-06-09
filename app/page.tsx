@@ -1,65 +1,89 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-[#FFF8F4]">
+      {/* Hero Section */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="flex flex-col items-center text-center">
+          <span className="mb-4 rounded-full bg-pink-100 px-4 py-2 text-sm font-medium text-pink-700">
+            Freshly Made Every Day
+          </span>
+
+          <h1 className="max-w-4xl text-5xl font-bold text-gray-900 md:text-7xl">
+            Delicious Cakes &
+            <span className="text-pink-600"> Pastries</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="mt-6 max-w-2xl text-lg text-gray-600">
+            Browse our catalog, choose your favorite products and place your
+            order directly through WhatsApp.
           </p>
+
+          <button className="mt-8 rounded-full bg-pink-600 px-8 py-4 font-semibold text-white transition hover:bg-pink-700">
+            Browse Products
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Categories */}
+      <section className="mx-auto max-w-7xl px-6 py-12">
+        <h2 className="mb-8 text-center text-3xl font-bold">
+          Our Categories
+        </h2>
+
+        <div className="grid gap-6 md:grid-cols-4">
+          <div className="rounded-3xl bg-white p-8 shadow-sm">
+            <h3 className="text-xl font-semibold">🎂 Cakes</h3>
+          </div>
+
+          <div className="rounded-3xl bg-white p-8 shadow-sm">
+            <h3 className="text-xl font-semibold">🥐 Viennoiseries</h3>
+          </div>
+
+          <div className="rounded-3xl bg-white p-8 shadow-sm">
+            <h3 className="text-xl font-semibold">🍪 Cookies</h3>
+          </div>
+
+          <div className="rounded-3xl bg-white p-8 shadow-sm">
+            <h3 className="text-xl font-semibold">🧁 Cupcakes</h3>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <h2 className="mb-8 text-center text-3xl font-bold">
+          Featured Products
+        </h2>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {[1, 2, 3].map((item) => (
+            <div
+              key={item}
+              className="overflow-hidden rounded-3xl bg-white shadow-sm"
+            >
+              <div className="h-60 bg-pink-100"></div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-semibold">Chocolate Cake</h3>
+
+                <p className="mt-2 text-gray-600">
+                  Rich chocolate cake with premium ingredients.
+                </p>
+
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="font-bold text-pink-600">
+                    45.000 TND
+                  </span>
+
+                  <button className="rounded-full bg-pink-600 px-4 py-2 text-white hover:bg-pink-700">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
