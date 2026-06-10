@@ -75,8 +75,4 @@ export async function getFeaturedProducts(): Promise<Product[]> {
   
     return data;
   }
-  export async function getProductById(productId: string): Promise<Product | null> {
-    const products = await getProducts();
   
-    return products.find((product) => product.id === productId) || null;
-  }
