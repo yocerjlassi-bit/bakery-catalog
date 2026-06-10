@@ -62,16 +62,4 @@ export async function getFeaturedProducts(): Promise<Product[]> {
   
     return { error };
   }
-  export async function getCategories() {
-    const { data, error } = await supabase
-      .from("categories")
-      .select("id, name")
-      .order("name", { ascending: true });
   
-    if (error) {
-      console.error("Error fetching categories:", error);
-      return [];
-    }
-  
-    return data;
-  }
