@@ -38,11 +38,7 @@ export default function CheckoutPage() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   
-    const whatsappUrl = generateWhatsAppOrderUrl(
-        items,
-        formData,
-        businessSettings.whatsappNumber
-      );
+    const whatsappUrl = generateWhatsAppOrderUrl(items, formData);
   
     window.open(whatsappUrl, "_blank");
   }

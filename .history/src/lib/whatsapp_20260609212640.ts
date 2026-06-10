@@ -1,13 +1,11 @@
 import { CartItem } from "@/store/cartStore";
 import { CheckoutFormData } from "@/types/checkout";
-import { CheckoutFormData } from "@/types/checkout";
-import { CartItem } from "@/store/cartStore";
+import { businessSettings } from "@/data/settings";
 
 export function generateWhatsAppOrderUrl(
-    items: CartItem[],
-    checkoutData: CheckoutFormData,
-    whatsappNumber: string
-  ) {
+  items: CartItem[],
+  checkoutData: CheckoutFormData
+) {
   const total = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -49,5 +47,7 @@ ${checkoutData.notes || "No notes"}
 
 Please confirm availability and details.`;
 
-return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+return `https://wa.me/${businessSettings.whatsappNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 }

@@ -49,5 +49,7 @@ ${checkoutData.notes || "No notes"}
 
 Please confirm availability and details.`;
 
-return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+return `https://wa.me/${businessSettings.whatsappNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 }

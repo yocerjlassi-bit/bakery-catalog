@@ -1,8 +1,6 @@
-import { getBusinessSettings } from "@/lib/settings";
+import { businessSettings } from "@/data/settings";
 
-export default async function Footer() {
-  const businessSettings = await getBusinessSettings();
-
+export default function Footer() {
   return (
     <footer className="mt-auto border-t bg-white">
       <div className="mx-auto max-w-7xl px-6 py-10">
@@ -18,7 +16,9 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-gray-900">Contact</h4>
+            <h4 className="font-semibold text-gray-900">
+              Contact
+            </h4>
 
             <div className="mt-3 space-y-2 text-sm text-gray-600">
               <p>WhatsApp: +{businessSettings.whatsappNumber}</p>
@@ -39,7 +39,9 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-gray-900">Opening Hours</h4>
+            <h4 className="font-semibold text-gray-900">
+              Opening Hours
+            </h4>
 
             <div className="mt-3 space-y-2 text-sm text-gray-600">
               {businessSettings.openingHours.map((hour) => (

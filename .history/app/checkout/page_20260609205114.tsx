@@ -1,5 +1,4 @@
 "use client";
-import { businessSettings } from "@/data/settings";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -38,11 +37,7 @@ export default function CheckoutPage() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   
-    const whatsappUrl = generateWhatsAppOrderUrl(
-        items,
-        formData,
-        businessSettings.whatsappNumber
-      );
+    const whatsappUrl = generateWhatsAppOrderUrl(items, formData);
   
     window.open(whatsappUrl, "_blank");
   }
