@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { products } from "@/data/products";
 import AddToCartButton from "@/components/cart/AddToCartButton";
-import { getProducts } from "@/lib/products";
-
 interface ProductDetailsPageProps {
   params: Promise<{
     id: string;
@@ -15,8 +13,7 @@ export default async function ProductDetailsPage({
 }: ProductDetailsPageProps) {
   const { id } = await params;
 
-  const products = await getProducts();
-  const product = products.find((item) => item.id === id);
+  const product = products.find((item) => item.id === Number(id));
 
   if (!product) {
     notFound();
@@ -25,14 +22,8 @@ export default async function ProductDetailsPage({
   return (
     <main className="min-h-screen bg-[#FFF8F4] px-6 py-16">
       <section className="mx-auto grid max-w-6xl gap-10 rounded-3xl bg-white p-8 shadow-sm md:grid-cols-2">
-        <div className="relative min-h-[400px] overflow-hidden rounded-3xl bg-pink-100">
-          <Image
-            src={product.imageUrl}
-            alt={product.name}
-            fill
-            className="object-cover"
-            priority
-          />
+        <div className="flex min-h-[400px] items-center justify-center rounded-3xl bg-pink-100 text-8xl">
+          🎂
         </div>
 
         <div className="flex flex-col justify-center">

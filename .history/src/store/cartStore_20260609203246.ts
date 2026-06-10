@@ -9,9 +9,9 @@ export interface CartItem extends Product {
 interface CartStore {
   items: CartItem[];
   addItem: (product: Product) => void;
-  removeItem: (productId: string) => void;
-  increaseQuantity: (productId: string) => void;
-  decreaseQuantity: (productId: string) => void;
+  removeItem: (productId: number) => void;
+  increaseQuantity: (productId: number) => void;
+  decreaseQuantity: (productId: number) => void;
   clearCart: () => void;
 }
 
