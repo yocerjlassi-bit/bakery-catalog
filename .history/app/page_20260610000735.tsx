@@ -1,12 +1,11 @@
 import Link from "next/link";
 import ProductCard from "@/components/products/ProductCard";
-import { getFeaturedProducts } from "@/lib/products";
-import { getBusinessSettings } from "@/lib/settings";
+import { products } from "@/data/products";
+import { businessSettings } from "@/data/settings";
 
-export default async function Home() {
-  const featuredProducts = await getFeaturedProducts();
-  const businessSettings = await getBusinessSettings();
-  
+export default function Home() {
+  const featuredProducts = products.filter((product) => product.featured);
+
   return (
     <main className="min-h-screen bg-[#FFF8F4]">
       <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2">

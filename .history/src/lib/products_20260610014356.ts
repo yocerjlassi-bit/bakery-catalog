@@ -49,8 +49,3 @@ export async function getProducts(): Promise<Product[]> {
     featured: product.featured,
   }));
 }
-export async function getFeaturedProducts(): Promise<Product[]> {
-    const products = await getProducts();
-  
-    return products.filter((product) => product.featured);
-  }
