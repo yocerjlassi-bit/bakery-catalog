@@ -32,30 +32,6 @@ export default function NewProductForm({
     event.preventDefault();
     setErrorMessage("");
 
-    if (!imageFile) {
-      setErrorMessage("Please upload a product image.");
-      return;
-    }
-
-    const fileExt = imageFile.name.split(".").pop();
-    const fileName = `${Date.now()}.${fileExt}`;
-    const filePath = `products/${fileName}`;
-
-    const { error: uploadError } = await supabase.storage
-      .from("product-images")
-      .upload(filePath, imageFile);
-
-    if (uploadError) {
-      setErrorMessage(uploadError.message);
-      return;
-    }
-
-    const { data: publicUrlData } = supabase.storage
-      .from("product-images")
-      .getPublicUrl(filePath);
-
-    const imageUrl = publicUrlData.publicUrl;
-
     const { error } = await supabase.from("products").insert({
       name,
       description,
@@ -119,24 +95,23 @@ export default function NewProductForm({
       </div>
 
       <div>
-        <label className="mb-2 block font-medium text-gray-900">
-          Product Image *
-        </label>
+  <label className="mb-2 block font-medium text-gray-900">
+    Product Image *
+  </label>
 
-        <input
-          required
-          type="file"
-          accept="image/*"
-          onChange={(event) => {
-            const file = event.target.files?.[0];
-
-            if (file) {
-              setImageFile(file);
-            }
-          }}
-          className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
-        />
-      </div>
+  <input
+    required
+    type="file"
+    accept="image/*"
+    onChange={(event) => {
+      const file = event.target.files?.[0];
+      if (file) {
+        setImageFile(file);
+      }
+    }}
+    className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+  />
+</div>
 
       <div>
         <label className="mb-2 block font-medium text-gray-900">
