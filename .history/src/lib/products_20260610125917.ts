@@ -80,30 +80,4 @@ export async function getFeaturedProducts(): Promise<Product[]> {
   
     return products.find((product) => product.id === productId) || null;
   }
-  export async function getAllCategories() {
-    const { data, error } = await supabase
-      .from("categories")
-      .select("*")
-      .order("name");
   
-    if (error) {
-      console.error(error);
-      return [];
-    }
-  
-    return data;
-  }
-  
-  export async function getCategoryById(id: string) {
-    const { data, error } = await supabase
-      .from("categories")
-      .select("*")
-      .eq("id", id)
-      .single();
-  
-    if (error) {
-      return null;
-    }
-  
-    return data;
-  }
