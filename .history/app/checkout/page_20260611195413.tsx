@@ -1,17 +1,15 @@
 "use client";
+import { businessSettings } from "@/data/settings";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useCartStore } from "@/store/cartStore";
 import { CheckoutFormData } from "@/types/checkout";
 import { generateWhatsAppOrderUrl } from "@/lib/whatsapp";
+import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-
 export default function CheckoutPage() {
   const items = useCartStore((state) => state.items);
-  const supabase = createClient();
-
-  const [whatsappNumber, setWhatsappNumber] = useState("");
 
   const [formData, setFormData] = useState<CheckoutFormData>({
     customerName: "",
@@ -29,23 +27,10 @@ export default function CheckoutPage() {
     0
   );
 
-  useEffect(() => {
-    async function fetchSettings() {
-      const { data } = await supabase
-        .from("settings")
-        .select("whatsapp_number")
-        .limit(1)
-        .single();
-
-      if (data?.whatsapp_number) {
-        setWhatsappNumber(data.whatsapp_number);
-      }
-    }
-
-    fetchSettings();
-  }, [supabase]);
-
-  function updateField(field: keyof CheckoutFormData, value: string) {
+  function updateField(
+    field: keyof CheckoutFormData,
+    value: string
+  ) {
     setFormData((previousData) => ({
       ...previousData,
       [field]: value,
@@ -54,18 +39,13 @@ export default function CheckoutPage() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    if (!whatsappNumber) {
-      alert("WhatsApp number is not configured.");
-      return;
-    }
-
+  
     const whatsappUrl = generateWhatsAppOrderUrl(
-      items,
-      formData,
-      whatsappNumber
-    );
-
+        items,
+        formData,
+        businessSettings.whatsappNumber
+      );
+  
     window.open(whatsappUrl, "_blank");
   }
 
@@ -258,7 +238,9 @@ export default function CheckoutPage() {
                   <p className="font-medium text-gray-900">
                     {item.quantity}x {item.name}
                   </p>
-                  <p className="text-sm text-gray-500">{item.category}</p>
+                  <p className="text-sm text-gray-500">
+                    {item.category}
+                  </p>
                 </div>
 
                 <p className="font-semibold text-pink-600">

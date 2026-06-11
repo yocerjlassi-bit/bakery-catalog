@@ -37,7 +37,6 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-3xl font-bold tracking-wide text-pink-600 [font-family:var(--font-playfair)]"
         >
           {businessName}
         </Link>

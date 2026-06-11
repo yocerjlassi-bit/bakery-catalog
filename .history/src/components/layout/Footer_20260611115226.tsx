@@ -8,7 +8,7 @@ export default async function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <h3 className="text-2xl font-bold text-pink-600 [font-family:var(--font-playfair)]">
+            <h3 className="text-xl font-bold text-pink-600">
               {businessSettings.businessName}
             </h3>
 
