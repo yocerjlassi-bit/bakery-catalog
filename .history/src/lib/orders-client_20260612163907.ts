@@ -1,6 +1,4 @@
-import { CartItem } from "@/store/cartStore";
-import { CheckoutFormData } from "@/types/checkout";
-import { createClient } from "@/lib/supabase/client";
+
 export async function createOrder(
   items: CartItem[],
   checkoutData: CheckoutFormData

@@ -1,5 +1,6 @@
 import { CartItem } from "@/store/cartStore";
 import { CheckoutFormData } from "@/types/checkout";
+imprt { CheckoutFormData } from "@/types/checkout";
 import { CartItem } from "@/store/cartStore";
 
 export function generateWhatsAppOrderUrl(

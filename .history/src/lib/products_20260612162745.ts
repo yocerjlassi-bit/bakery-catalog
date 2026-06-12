@@ -42,15 +42,15 @@ export async function getProducts(): Promise<Product[]> {
     console.error("Error fetching products:", error);
     return [];
   }
-  return (data as unknown as SupabaseProduct[]).map((product) => ({
+
+  return (data as SupabaseProduct[]).map((product) => ({
     id: product.id,
     name: product.name,
     description: product.description || "",
     price: Number(product.price),
     imageUrl: product.image_url || "",
-    category: Array.isArray(product.categories)
-    ? product.categories[0]?.name || "Uncategorized"
-    : product.categories?.name || "Uncategorized",    isAvailable: product.is_available,
+    category: product.categories?.name || "Uncategorized",
+    isAvailable: product.is_available,
     featured: product.featured,
   }));
 }

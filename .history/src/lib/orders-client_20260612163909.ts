@@ -1,13 +1,11 @@
 import { CartItem } from "@/store/cartStore";
 import { CheckoutFormData } from "@/types/checkout";
-import { createClient as createBrowserClient } from "@/lib/supabase/client";
-import { createClient as createServerClient } from "@/lib/supabase/server";
-
+import { createClient } from "@/lib/supabase/client";
 export async function createOrder(
   items: CartItem[],
   checkoutData: CheckoutFormData
 ) {
-  const supabase = createBrowserClient();
+  const supabase = createClient();
 
   const total = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -56,48 +54,4 @@ export async function createOrder(
   }
 
   return { orderId: order.id, error: null };
-}
-
-export type AdminOrder = {
-  id: string;
-  customer_name: string;
-  phone_number: string;
-  email: string | null;
-  order_type: string;
-  delivery_address: string | null;
-  requested_date: string;
-  time_slot: string;
-  notes: string | null;
-  total: number;
-  status: string;
-  created_at: string;
-};
-
-export async function getOrders(): Promise<AdminOrder[]> {
-  const supabase = await createServerClient();
-
-  const { data, error } = await supabase
-    .from("orders")
-    .select("*")
-    .order("created_at", { ascending: false });
-
-  if (error) {
-    console.error("Error fetching orders:", error);
-    return [];
-  }
-
-  return data as AdminOrder[];
-}
-
-export async function getOrdersCount() {
-  const supabase = await createServerClient();
-
-  const { count } = await supabase
-    .from("orders")
-    .select("*", {
-      count: "exact",
-      head: true,
-    });
-
-  return count ?? 0;
 }

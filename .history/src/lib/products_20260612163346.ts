@@ -42,7 +42,7 @@ export async function getProducts(): Promise<Product[]> {
     console.error("Error fetching products:", error);
     return [];
   }
-  return (data as unknown as SupabaseProduct[]).map((product) => ({
+
     id: product.id,
     name: product.name,
     description: product.description || "",
