@@ -107,47 +107,4 @@ export async function getFeaturedProducts(): Promise<Product[]> {
   
     return data;
   }
-  export async function getProductsCount() {
-    const { count } = await supabase
-      .from("products")
-      .select("*", {
-        count: "exact",
-        head: true,
-      });
   
-    return count ?? 0;
-  }
-  
-  export async function getCategoriesCount() {
-    const { count } = await supabase
-      .from("categories")
-      .select("*", {
-        count: "exact",
-        head: true,
-      });
-  
-    return count ?? 0;
-  }
-  
-  export async function getFeaturedProductsCount() {
-    const { count } = await supabase
-      .from("products")
-      .select("*", {
-        count: "exact",
-        head: true,
-      })
-      .eq("featured", true);
-  
-    return count ?? 0;
-  }
-  export async function getAvailableProductsCount() {
-    const { count } = await supabase
-      .from("products")
-      .select("*", {
-        count: "exact",
-        head: true,
-      })
-      .eq("is_available", true);
-  
-    return count ?? 0;
-  }

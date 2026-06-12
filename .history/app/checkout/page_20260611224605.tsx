@@ -10,7 +10,6 @@ import { createOrder } from "@/lib/orders-client";
 
 export default function CheckoutPage() {
   const items = useCartStore((state) => state.items);
-  const clearCart = useCartStore((state) => state.clearCart);
   const supabase = createClient();
 
   const [whatsappNumber, setWhatsappNumber] = useState("");
@@ -73,7 +72,6 @@ export default function CheckoutPage() {
     );
 
     window.open(whatsappUrl, "_blank");
-    clearCart();
   }
 
   if (items.length === 0) {

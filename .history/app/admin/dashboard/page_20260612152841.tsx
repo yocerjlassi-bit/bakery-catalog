@@ -28,7 +28,6 @@ export default async function AdminDashboardPage() {
   const featuredProductsCount = await getFeaturedProductsCount();
   const availableProductsCount = await getAvailableProductsCount();
   const ordersCount = await getOrdersCount();
-  const pendingOrdersCount = await getPendingOrdersCount();
   return (
     <main className="min-h-screen bg-[#FFF8F4] px-6 py-16">
       <section className="mx-auto max-w-6xl">
@@ -130,31 +129,6 @@ export default async function AdminDashboardPage() {
 >
   <h2 className="text-xl font-bold">Orders</h2>
   <p className="mt-2 text-gray-600">View customer orders.</p>
-</Link>
-<Link
-  href="/admin/orders"
-  className="rounded-3xl bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md"
->
-  <p className="text-sm uppercase tracking-wide text-gray-500">
-    Orders
-  </p>
-
-  <p className="mt-3 text-5xl font-bold text-pink-600">
-    {ordersCount}
-  </p>
-</Link>
-
-<Link
-  href="/admin/orders"
-  className="rounded-3xl bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md"
->
-  <p className="text-sm uppercase tracking-wide text-gray-500">
-    Pending
-  </p>
-
-  <p className="mt-3 text-5xl font-bold text-pink-600">
-    {pendingOrdersCount}
-  </p>
 </Link>
         </div>
       </section>

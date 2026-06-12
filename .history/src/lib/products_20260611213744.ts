@@ -140,14 +140,4 @@ export async function getFeaturedProducts(): Promise<Product[]> {
   
     return count ?? 0;
   }
-  export async function getAvailableProductsCount() {
-    const { count } = await supabase
-      .from("products")
-      .select("*", {
-        count: "exact",
-        head: true,
-      })
-      .eq("is_available", true);
   
-    return count ?? 0;
-  }

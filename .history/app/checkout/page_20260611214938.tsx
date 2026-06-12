@@ -6,11 +6,9 @@ import { useCartStore } from "@/store/cartStore";
 import { CheckoutFormData } from "@/types/checkout";
 import { generateWhatsAppOrderUrl } from "@/lib/whatsapp";
 import { createClient } from "@/lib/supabase/client";
-import { createOrder } from "@/lib/orders-client";
-
+import { createOrder } from "@/lib/orders";
 export default function CheckoutPage() {
   const items = useCartStore((state) => state.items);
-  const clearCart = useCartStore((state) => state.clearCart);
   const supabase = createClient();
 
   const [whatsappNumber, setWhatsappNumber] = useState("");
@@ -54,18 +52,14 @@ export default function CheckoutPage() {
     }));
   }
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {    event.preventDefault();
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
     if (!whatsappNumber) {
       alert("WhatsApp number is not configured.");
       return;
     }
-    const { error } = await createOrder(items, formData);
 
-    if (error) {
-      alert(error.message);
-      return;
-    }
     const whatsappUrl = generateWhatsAppOrderUrl(
       items,
       formData,
@@ -73,7 +67,6 @@ export default function CheckoutPage() {
     );
 
     window.open(whatsappUrl, "_blank");
-    clearCart();
   }
 
   if (items.length === 0) {
