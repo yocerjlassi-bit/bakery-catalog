@@ -38,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           <Link
             href={`/products/${product.id}`}
-            className="rounded-full border border-[#D7A8A0] px-5 py-1.5 font-medium text-[#B97A95] transition hover:bg-[#B97A95] hover:text-white"
+            className="rounded-full border border-[#D7A8A0] px-5 py-1.5"font-medium text-[#B97A95] transition hover:bg-[#B97A95] hover:text-white"
           >
             Details
           </Link>

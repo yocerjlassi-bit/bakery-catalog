@@ -18,14 +18,14 @@ export default function ProductCard({ product }: ProductCardProps) {
         />
       </div>
 
-      <div className="p-5">
+      <div className="p-6">
         <div className="mb-4 h-[2px] w-12 rounded-full bg-[#C9A05A]" />
 
         <p className="text-sm uppercase tracking-[0.2em] text-[#B97A95]">
           {product.category}
         </p>
 
-        <h3 className="mt-2 text-2xl font-semibold text-[#3A2A2A] [font-family:var(--font-playfair)]">
+        <h3 className="mt-3 text-3xl font-semibold text-[#3A2A2A] [font-family:var(--font-playfair)]">
           {product.name}
         </h3>
 
@@ -38,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           <Link
             href={`/products/${product.id}`}
-            className="rounded-full border border-[#D7A8A0] px-5 py-1.5 font-medium text-[#B97A95] transition hover:bg-[#B97A95] hover:text-white"
+            className="rounded-full border border-[#D7A8A0] px-6 py-2 font-medium text-[#B97A95] transition hover:bg-[#B97A95] hover:text-white"
           >
             Details
           </Link>

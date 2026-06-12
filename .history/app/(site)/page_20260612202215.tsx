@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "@/components/products/ProductCard";
 import { getFeaturedProducts } from "@/lib/products";
@@ -10,7 +9,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[#FFF8F4]">
-      <section className="relative overflow-hidden px-6 py-16">
+      <section className="relative overflow-hidden bg-[#FFF8F4] px-6 py-24">
         <div className="absolute left-10 top-10 h-40 w-40 rounded-full bg-[#F7C8D0]/40 blur-3xl" />
         <div className="absolute bottom-10 right-10 h-48 w-48 rounded-full bg-[#CFE8D5]/50 blur-3xl" />
         <div className="absolute right-1/3 top-24 h-32 w-32 rounded-full bg-[#DCC9F2]/40 blur-3xl" />
@@ -21,7 +20,7 @@ export default async function Home() {
               Handmade Bakery
             </p>
 
-            <h1 className="max-w-xl text-4xl font-bold leading-tight text-[#3A2A2A] text-4xl md:text-6xl [font-family:var(--font-playfair)]">
+            <h1 className="max-w-2xl text-4xl font-bold leading-tight text-[#3A2A2A] md:text-5xl">
               Soft, elegant sweets for your sweetest moments.
             </h1>
 
@@ -50,15 +49,12 @@ export default async function Home() {
           </div>
 
           <div className="rounded-[2rem] border border-[#F3E7E2] bg-white/80 p-4 shadow-sm">
-            <div className="flex min-h-[240px] items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-[#FFF8F4] via-[#FFF0F5] to-[#F1F7EF] text-center">
+            <div className="flex min-h-[460px] items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-[#FFF8F4] via-[#FFF0F5] to-[#F1F7EF] text-center">
               <div>
-                <Image
+                <img
                   src="/logo.png"
                   alt="Fyanka Bakery"
-                  width={310}
-                  height={310}
-                  className="mx-auto h-28 w-auto object-contain"
-                  priority
+                  className="mx-auto h-52 w-auto object-contain"
                 />
 
                 <p className="mt-6 text-sm uppercase tracking-[0.4em] text-[#C9A05A]">
@@ -70,13 +66,13 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-14">
+      <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="mb-10 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#C9A05A]">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#B8894D]">
             Selected Products
           </p>
 
-          <h2 className="text-4xl font-bold text-[#3A2A2A]">
+          <h2 className="text-4xl font-bold text-[#2B1810]">
             Featured Creations
           </h2>
 
@@ -85,7 +81,7 @@ export default async function Home() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-3">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -94,7 +90,7 @@ export default async function Home() {
         <div className="mt-10 text-center">
           <Link
             href="/products"
-            className="inline-block rounded-full bg-[#B97A95] px-8 py-4 font-semibold text-white transition hover:bg-[#A86C86]"
+            className="inline-block rounded-full bg-[#B8894D] px-8 py-4 font-semibold text-white hover:bg-[#9F743F]"
           >
             View Full Catalog
           </Link>

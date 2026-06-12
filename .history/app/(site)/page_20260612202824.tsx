@@ -21,7 +21,7 @@ export default async function Home() {
               Handmade Bakery
             </p>
 
-            <h1 className="max-w-xl text-4xl font-bold leading-tight text-[#3A2A2A] text-4xl md:text-6xl [font-family:var(--font-playfair)]">
+            <h1 className="max-w-2xl text-4xl font-bold leading-tight text-[#3A2A2A] md:text-5xl [font-family:var(--font-playfair)]">
               Soft, elegant sweets for your sweetest moments.
             </h1>
 
@@ -50,14 +50,14 @@ export default async function Home() {
           </div>
 
           <div className="rounded-[2rem] border border-[#F3E7E2] bg-white/80 p-4 shadow-sm">
-            <div className="flex min-h-[240px] items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-[#FFF8F4] via-[#FFF0F5] to-[#F1F7EF] text-center">
+            <div className="flex min-h-[320px] items-center justify-center rounded-[1.5rem] bg-gradient-to-br from-[#FFF8F4] via-[#FFF0F5] to-[#F1F7EF] text-center">
               <div>
                 <Image
                   src="/logo.png"
                   alt="Fyanka Bakery"
-                  width={310}
-                  height={310}
-                  className="mx-auto h-28 w-auto object-contain"
+                  width={240}
+                  height={240}
+                  className="mx-auto h-36 w-auto object-contain"
                   priority
                 />
 
@@ -85,7 +85,7 @@ export default async function Home() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-3">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
