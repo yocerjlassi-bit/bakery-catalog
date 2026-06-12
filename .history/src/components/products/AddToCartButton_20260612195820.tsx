@@ -8,7 +8,9 @@ interface AddToCartButtonProps {
   product: Product;
 }
 
-export default function AddToCartButton({ product }: AddToCartButtonProps) {
+export default function AddToCartButton({
+  product,
+}: AddToCartButtonProps) {
   const addItem = useCartStore((state) => state.addItem);
   const [added, setAdded] = useState(false);
 
