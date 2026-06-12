@@ -85,7 +85,7 @@ export default function CheckoutPage() {
                 onChange={(event) =>
                   updateField("customerName", event.target.value)
                 }
-                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
                 placeholder="Customer full name"
               />
             </div>
@@ -101,7 +101,7 @@ export default function CheckoutPage() {
                 onChange={(event) =>
                   updateField("phoneNumber", event.target.value)
                 }
-                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
                 placeholder="+216 XX XXX XXX"
               />
             </div>
@@ -116,7 +116,7 @@ export default function CheckoutPage() {
                 onChange={(event) =>
                   updateField("email", event.target.value)
                 }
-                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
                 placeholder="customer@email.com"
               />
             </div>
@@ -134,7 +134,7 @@ export default function CheckoutPage() {
                     event.target.value as "pickup" | "delivery"
                   )
                 }
-                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
               >
                 <option value="pickup">Pickup</option>
                 <option value="delivery">Delivery</option>
@@ -153,7 +153,7 @@ export default function CheckoutPage() {
                   onChange={(event) =>
                     updateField("deliveryAddress", event.target.value)
                   }
-                  className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+                  className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
                   placeholder="Full delivery address"
                 />
               </div>
@@ -170,7 +170,7 @@ export default function CheckoutPage() {
                 onChange={(event) =>
                   updateField("requestedDate", event.target.value)
                 }
-                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
               />
             </div>
 
@@ -184,7 +184,7 @@ export default function CheckoutPage() {
                 onChange={(event) =>
                   updateField("timeSlot", event.target.value)
                 }
-                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
               >
                 <option value="">Select a time slot</option>
                 <option value="09:00 - 11:00">09:00 - 11:00</option>
@@ -205,7 +205,7 @@ export default function CheckoutPage() {
                 onChange={(event) =>
                   updateField("notes", event.target.value)
                 }
-                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+                className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
                 placeholder="Cake message, allergies, special instructions..."
               />
             </div>

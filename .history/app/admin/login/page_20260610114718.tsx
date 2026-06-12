@@ -44,7 +44,7 @@ export default function AdminLoginPage() {
             placeholder="Admin email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+            className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
           />
 
           <input
@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
             placeholder="Password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-pink-500"
+            className="w-full rounded-xl border border-gray-200 p-3 outline-none focus:border-[#B8894D]"
           />
 
           {errorMessage && (
