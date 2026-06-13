@@ -20,6 +20,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Fyanka Bakery",
   description: "Elegant bakery catalog and WhatsApp ordering website",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
